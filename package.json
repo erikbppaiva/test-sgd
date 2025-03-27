@@ -1,0 +1,19 @@
+{
+  "name": "modulo-gerencia",
+  "version": "1.0.0",
+  "description": "Manter Orgão",
+  "license": "ISC",
+  "author": "Erik Paiva",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cypress": "^14.2.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^9.6.0",
+    "cypress-xpath": "^2.0.1"
+  }
+}
