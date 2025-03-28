@@ -11,15 +11,3 @@ npm install
 '''bash
 npx cypress open
 '''
-
-## Contribuição
-
-Diretrizes para quem deseja contribuir.
-
-## Licença
-
-A licença sob a qual o projeto é distribuído.
-
-## Créditos
-
-Reconhecimento a outros desenvolvedores ou recursos.
