@@ -58,8 +58,59 @@ describe("Manter Orgao Listar Orgão", () => {
     cy.get('[valign="top"] > #ctl00_cphSistema_grdEmpresa_ctl02_lbl_txt_empresa')
       .as("orgao")
       .should("have.text", "AGÊNCIA DE DEFESA AGROPECUÁRIA DO ESTADO DO TOCANTINS");
-    cy.get("#ctl00_cphSistema_grdEmpresa > :nth-child(1) > :nth-child(2) > :nth-child(2)").as("sigla").should("have.text", "ADAPEC");
+    cy.get("#ctl00_cphSistema_grdEmpresa > :nth-child(1) > :nth-child(2) > :nth-child(2)").as("sigla").should("have.text", "ADFDFGC");
     cy.get(":nth-child(1) > :nth-child(2) > :nth-child(3) > img").as("logotipo").should("be.visible");
     cy.get("#ctl00_cphSistema_grdEmpresa > tbody > tr:nth-child(2) > td:nth-child(4) > font > b").as("ativo").should("have.text", "SIM");
   });
+  it('Deve apresentar a tela de alteração do orgão', () => {
+    cy.get(":nth-child(11) > .collapsible-header > .menu-title").as("gerencia").click();
+    cy.wait(1000);
+    cy.get(".active > div.collapsible-body > .collapsible > :nth-child(8) > .collapsible-body > span").as("tabelasAuxiliares").click();
+    cy.get("#ctl00_cphSistema_hlkEmpresa").as("orgaos").click();
+    cy.wait(1000);
+    cy.get('[valign="top"] > #ctl00_cphSistema_grdEmpresa_ctl02_lbl_txt_empresa').should('have.text', 'AGÊNCIA DE DEFESA AGROPECUÁRIA DO ESTADO DO TOCANTINS')
+    cy.get('#ctl00_cphSistema_grdEmpresa_ctl02_ddlAcao').select('ALTERAR')
+    cy.get('#ctl00_cphSistema_cabecalho_lbl_txt_acao').should('contain', 'Alterar')
+  })
+
+  it('Deve apresentar a tela de atributos do orgão', () => {
+    cy.get(":nth-child(11) > .collapsible-header > .menu-title").as("gerencia").click();
+    cy.wait(1000);
+    cy.get(".active > div.collapsible-body > .collapsible > :nth-child(8) > .collapsible-body > span").as("tabelasAuxiliares").click();
+    cy.get("#ctl00_cphSistema_hlkEmpresa").as("orgaos").click();
+    cy.wait(1000);
+    cy.get('[valign="top"] > #ctl00_cphSistema_grdEmpresa_ctl02_lbl_txt_empresa').should('have.text', 'AGÊNCIA DE DEFESA AGROPECUÁRIA DO ESTADO DO TOCANTINS')
+    cy.get('#ctl00_cphSistema_grdEmpresa_ctl02_ddlAcao').select('ATRIBUTOS')
+    cy.get('#ctl00_cphSistema_cabecalho_lbl_txt_acao').should('contain', 'Atributos')
+  })
+  it('Deve apresentar a tela de atributos do orgão', () => {
+    cy.get(":nth-child(11) > .collapsible-header > .menu-title").as("gerencia").click();
+    cy.wait(1000);
+    cy.get(".active > div.collapsible-body > .collapsible > :nth-child(8) > .collapsible-body > span").as("tabelasAuxiliares").click();
+    cy.get("#ctl00_cphSistema_hlkEmpresa").as("orgaos").click();
+    cy.wait(1000);
+    cy.get('[valign="top"] > #ctl00_cphSistema_grdEmpresa_ctl02_lbl_txt_empresa').should('have.text', 'AGÊNCIA DE DEFESA AGROPECUÁRIA DO ESTADO DO TOCANTINS')
+    cy.get('#ctl00_cphSistema_grdEmpresa_ctl02_ddlAcao').select('EXCLUIR')
+    cy.get('#ctl00_cphSistema_cabecalho_lbl_txt_acao').should('contain', 'Excluir')
+  })
+  it('Deve apresentar a tela de Informações do Portal', () => {
+    cy.get(":nth-child(11) > .collapsible-header > .menu-title").as("gerencia").click();
+    cy.wait(1000);
+    cy.get(".active > div.collapsible-body > .collapsible > :nth-child(8) > .collapsible-body > span").as("tabelasAuxiliares").click();
+    cy.get("#ctl00_cphSistema_hlkEmpresa").as("orgaos").click();
+    cy.wait(1000);
+    cy.get('[valign="top"] > #ctl00_cphSistema_grdEmpresa_ctl02_lbl_txt_empresa').should('have.text', 'AGÊNCIA DE DEFESA AGROPECUÁRIA DO ESTADO DO TOCANTINS')
+    cy.get('#ctl00_cphSistema_grdEmpresa_ctl02_ddlAcao').select('INFORMAÇÕES DO PORTAL')
+    cy.get('#ctl00_cphSistema_cabecalho_lbl_txt_acao').should('contain', 'Informações do Portal')
+  })
+  it('Deve apresentar a tela de Histórico', () => {
+    cy.get(":nth-child(11) > .collapsible-header > .menu-title").as("gerencia").click();
+    cy.wait(1000);
+    cy.get(".active > div.collapsible-body > .collapsible > :nth-child(8) > .collapsible-body > span").as("tabelasAuxiliares").click();
+    cy.get("#ctl00_cphSistema_hlkEmpresa").as("orgaos").click();
+    cy.wait(1000);
+    cy.get('[valign="top"] > #ctl00_cphSistema_grdEmpresa_ctl02_lbl_txt_empresa').should('have.text', 'AGÊNCIA DE DEFESA AGROPECUÁRIA DO ESTADO DO TOCANTINS')
+    cy.get('#ctl00_cphSistema_grdEmpresa_ctl02_ddlAcao').select('HISTÓRICO')
+    cy.get('#ctl00_cphSistema_cabecalho_lbl_txt_acao').should('contain', 'Histórico')
+  })
 });

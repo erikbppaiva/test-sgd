@@ -23,3 +23,16 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+import 'cypress-file-upload';
+Cypress.Commands.add('uploadPngFile', (selector, filePath) => {
+    cy.fixture(filePath, 'base64').then((fileContent) => {
+      cy.get(selector).upload(
+        {
+          fileContent,
+          fileName: filePath.split('/').pop(), // Extrai o nome do arquivo
+          mimeType: 'image/png'  // Define o MIME type como PNG
+        },
+        { subjectType: 'input' }
+      );
+    });
+  });
