@@ -15,10 +15,10 @@ describe("Manter Orgao Listar Orgão", () => {
 
     it.only('Atualizar orgão', () => {
         cy.get(":nth-child(11) > .collapsible-header > .menu-title").as("gerencia").click();
-        cy.wait(1000);
+        cy.wait(500);
         cy.get(".active > div.collapsible-body > .collapsible > :nth-child(8) > .collapsible-body > span").as("tabelasAuxiliares").click();
         cy.get("#ctl00_cphSistema_hlkEmpresa").as("orgaos").click();
-        cy.wait(1000);
+        cy.wait(500);
         cy.get('[valign="top"] > #ctl00_cphSistema_grdEmpresa_ctl02_lbl_txt_empresa').should('have.text', 'AGÊNCIA DE DEFESA AGROPECUÁRIA DO ESTADO DO TOCANTINS')
         cy.get('#ctl00_cphSistema_grdEmpresa_ctl02_ddlAcao').select('ALTERAR')
 

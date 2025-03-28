@@ -6,7 +6,7 @@ describe('Manter Orgao - Excluir', () => {
         cy.get("#ctl00_cphSistema_txt_login").type("723.134.030-09");
         cy.get("#ctl00_cphSistema_txt_senha").type("Usuarioteste123@");
         cy.get("#ctl00_cphSistema_btnEntrar").click();
-        cy.wait(1000);
+        cy.wait(500);
     });
 
     it('Deve excluir um órgão com sucesso', () => {

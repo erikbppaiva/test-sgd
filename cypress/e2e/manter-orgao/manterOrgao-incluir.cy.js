@@ -55,7 +55,7 @@ describe("Manter Orgao Listar Orgão", () => {
     //Não está exibindo a msg de “Operação realizada com sucesso.”
   });
 
-  it.only("Deve falhar se o arquivo não for PNG", () => {
+  it("Deve falhar se o arquivo não for PNG", () => {
     const filePath = "cypress/fixtures/logo_to.jpg"; 
     cy.get(":nth-child(11) > .collapsible-header > .menu-title").as("gerencia").click();
     cy.wait(500);
@@ -84,6 +84,16 @@ describe("Manter Orgao Listar Orgão", () => {
     cy.get("#ctl00_cphSistema_txt_orgao_protocolo_documento").type(54321);
     cy.get("#ctl00_cphSistema_cod_permite_teletrabalho_1").click();
     cy.get("#ctl00_cphSistema_cod_ativo_0").click();
-  
   });
+  
+  it.only("Clicar no botão do Volta redireciona a pagina de listar orgão", () => {
+    cy.get(":nth-child(11) > .collapsible-header > .menu-title").as("gerencia").click();
+    cy.wait(500);
+    cy.get(".active > div.collapsible-body > .collapsible > :nth-child(8) > .collapsible-body > span").as("tabelasAuxiliares").click();
+    cy.get("#ctl00_cphSistema_hlkEmpresa").as("orgaos").click();
+    cy.wait(500);
+    cy.get("#ctl00_cphSistema_hypNovaEmpresa").as("novoOrgao").click();
+    cy.get('#ctl00_cphSistema_btnVoltar').should('be.visible').click()
+    cy.get('#ctl00_cphSistema_hypNovaEmpresa').should('be.visible')
+  })
 });
